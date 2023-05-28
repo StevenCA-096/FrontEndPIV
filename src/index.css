@@ -32,7 +32,7 @@ body {
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: medium;
   line-height: 1.1;
 }
 
@@ -66,4 +66,25 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f1f1f1;
+  padding: 3px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.footer{
+  background-color: black;
+  padding: 3px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
