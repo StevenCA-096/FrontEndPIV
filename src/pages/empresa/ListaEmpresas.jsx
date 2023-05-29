@@ -12,9 +12,7 @@ const ListaEmpresas = () => {
 
   if(isError)
   return <div>Error</div>
-    
-
-  console.log(data)
+     
   return (
     <>
     <div>
