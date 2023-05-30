@@ -70,18 +70,18 @@ button:focus-visible {
 
 .navbar{
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background-color: #f1f1f1;
-  padding: 3px;
+  padding: 6px;
   position: fixed;
-  top: 0;
-  left: 0;
+  top: 0%;
+  left: 0%;
   width: 100%;
 }
 .footer{
   background-color: black;
-  padding: 3px;
+  padding: 6px;
   text-align: center;
   position: fixed;
   bottom: 0;

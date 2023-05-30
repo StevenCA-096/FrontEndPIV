@@ -1,7 +1,7 @@
 import React from 'react'
 import { useQuery } from "react-query";
-import { getEmpresa } from "../../services/EmpresaService";
-
+import { getEmpresa } from '../../Services/EmpresaService';
+import AgregarEmpresa from './components/AgregarEmpresa';
 const ListaEmpresas = () => {
 
     const { data, isLoading, isError } = useQuery('empresa', getEmpresa);
@@ -15,12 +15,15 @@ const ListaEmpresas = () => {
      
   return (
     <>
+    <AgregarEmpresa/><br />
     <div>
-      <h1>Lista</h1>
+      <h1>Lista de empresas</h1><br />
         {
             data.map((empresa) =>
             <div key={empresa.id}>
+                {empresa.id}
                 {empresa.nombre}
+                <hr />
             </div>
             )
         }

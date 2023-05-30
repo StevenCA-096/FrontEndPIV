@@ -11,7 +11,10 @@ const Navbar = () => {
                 to="empresa">Lista Empresas</NavLink > <hr />
             <NavLink
                 className='link parent-item capitalize nav-link'
-                to="offers">Lista Ofertas</NavLink >
+                to="oferta">Lista Ofertas</NavLink ><hr />
+            <NavLink
+                className='link parent-item capitalize nav-link'
+                to="candidato">Candidatos</NavLink >
         </nav>
     )
 }
