@@ -32,7 +32,7 @@ const AgregarCandidato = () => {
           descripcion:descripcion.current.value
       };
       mutation.mutateAsync(nuevoCandidato);
-      limpiarInput
+      limpiarInput()
   }
   const limpiarInput = ()=>{
     nombre.current.value = "";
@@ -45,7 +45,7 @@ const AgregarCandidato = () => {
 
   return (
     <>
-    <div >Agregar Candidato</div>
+    <div >Agregar nuevo candidato</div>
     <div >
       <label htmlFor="nombre">Nombre: </label>
       <input ref={nombre} type="text" id="nombre"/>
