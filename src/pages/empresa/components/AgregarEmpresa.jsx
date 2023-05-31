@@ -24,12 +24,19 @@ const AgregarEmpresa = () => {
             telefono:parseInt(telefono.current.value),
         };
         mutation.mutateAsync(newEmpresa);
-        
+        limpiarInput
     }
+    const limpiarInput = ()=>{
+        nombre.current.value = "";
+        direccion.current.value = "";
+        telefono.current.value = "";
+      }
 
   return (
     <>  
-        <div>
+        <h2>Agregar empresa</h2>
+        <div className='formulario'>
+            
             <label>Nombre: </label>
             <input ref={nombre} type="text" name="empresaNombre" />
             <label>Direccion: </label>

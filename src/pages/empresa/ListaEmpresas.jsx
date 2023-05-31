@@ -17,7 +17,7 @@ const ListaEmpresas = () => {
     <>
     <AgregarEmpresa/><br />
     <div>
-      <h1>Lista de empresas</h1><br />
+      <h2>Lista de empresas</h2><br />
         {
             data.map((empresa) =>
             <div key={empresa.id}>

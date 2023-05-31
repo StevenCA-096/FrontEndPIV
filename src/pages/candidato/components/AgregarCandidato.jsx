@@ -32,13 +32,21 @@ const AgregarCandidato = () => {
           descripcion:descripcion.current.value
       };
       mutation.mutateAsync(nuevoCandidato);
-      
+      limpiarInput
+  }
+  const limpiarInput = ()=>{
+    nombre.current.value = "";
+    apellido1.current.value = "";
+    apellido2.current.value = "";
+    fechaNacimiento.current.value = "";
+    direccion.current.value = "";
+    descripcion.current.value = "";
   }
 
   return (
     <>
-    <div>Agregar Candidato</div>
-    <div>
+    <div >Agregar Candidato</div>
+    <div >
       <label htmlFor="nombre">Nombre: </label>
       <input ref={nombre} type="text" id="nombre"/>
 

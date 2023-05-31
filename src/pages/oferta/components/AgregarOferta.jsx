@@ -22,7 +22,11 @@ const AgregarOferta = () => {
             empresaId: idOferta.current.value
         };
         mutation.mutateAsync(nuevaOferta);
-        
+        limpiarInput
+    }
+    const limpiarInput = ()=>{
+      descripcion.current.value = "";
+      idOferta.current.value = "";
     }
   return (
     <>
