@@ -18,15 +18,24 @@ const ListaEmpresas = () => {
     <AgregarEmpresa/><br />
     <div>
       <h2>Lista de empresas</h2><br />
-        {
-            data.map((empresa) =>
-            <div key={empresa.id}>
-                {empresa.id}
-                {empresa.nombre}
-                <hr />
-            </div>
-            )
-        }
+      <table>
+        <thead>
+          <th>Id empresa</th>
+          <th>Nombre empresa</th>
+          <th>Direccion empresa</th>
+          {
+            data.map((empresa)=>
+                <>
+                <tr key={empresa.id}>{empresa.id}
+                <td>{empresa.nombre}</td>
+                <td>{empresa.direccion}</td>
+                </tr>
+                
+                </>
+            )}
+        </thead>
+      </table>
+       
     </div>
     </>
 

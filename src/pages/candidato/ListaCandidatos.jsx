@@ -17,7 +17,7 @@ const ListaCandidatos = () => {
       
   return (
     <>
-    
+    y
         <div>
          <AgregarCandidato/><br />
         </div>
