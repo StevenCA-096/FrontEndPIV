@@ -10,18 +10,48 @@ const ListaCandidatos = () => {
     
     if(isError)
     return <div>Error</div>
+
+    const toggleVisibility = () => {
+        setIsVisible(!isVisible);
+      };
+      
   return (
     <>
-    <AgregarCandidato/><br />
+    <div>
+        <button onClick={toggleVisibility}>Mostrar</button>
+        {isVisible && (
+        <div>
+         <AgregarCandidato/><br />
+        </div>
+      )}
+    </div>
+    
     <div>ListaCandidatos</div><br />
     <div>
-        {
+        <table>
+            <thead className='tablehead'>
+                <th>Id</th>
+                <th>nombre</th>
+                <th>Telefono</th>
+                <th>Acciones</th>
+            {
             data.map((candidato)=>
-                <div key={candidato.id}>
-                    {candidato.nombre}
-                </div>
-            )
-        }
+                <>
+                <tr key={candidato.id}>{candidato.id}
+                <td>{candidato.nombre}</td>
+                <td>{candidato.telefono}</td>
+                <td>
+                    <button className='tablebtn'>Habilidades</button>
+                    <button className='tablebtn'>Examinar</button>
+                    <button className='tablebtn'>Eliminar</button>
+                </td>
+                </tr>
+                
+                </>        
+            )}
+            </thead>
+        </table>
+        
     </div>
     </>
   )

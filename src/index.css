@@ -37,11 +37,11 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
+  border-radius: 2px;
   border: 1px solid white;
   padding: 0.6em 1.2em;
   font-size: 1em;
-  font-weight: 500;
+  font-weight: 250;
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
@@ -92,4 +92,66 @@ button:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+/* Estilo base del input */
+input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Cambio de estilo cuando el input está enfocado */
+input:focus {
+  outline: none;
+  border-color: dodgerblue;
+  box-shadow: 0 0 5px dodgerblue;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: gold;
+}
+
+tr:nth-child(even) {
+ 
+}
+.tablebtn{
+  size: 10px;
+}
+.input-container {
+  width: 100%;
+}
+
+.input-container input[type="text"],
+.input-container input[type="email"],
+.input-container input[type="password"] {
+  display: inline-block;
+  width: calc(50% - 5px); /* Resta 5 píxeles para tener en cuenta el espacio entre los inputs */
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box; /* Incluye el padding en el ancho total del input */
+}
+
+.input-container input[type="submit"] {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
 }

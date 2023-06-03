@@ -35,14 +35,17 @@ const AgregarEmpresa = () => {
   return (
     <>  
         <h2>Agregar empresa</h2>
-        <div className='formulario'>
+        <div className='container'>
             
             <label>Nombre: </label>
-            <input ref={nombre} type="text" name="empresaNombre" />
+            <input className='input' ref={nombre} type="text" name="empresaNombre" />
+
             <label>Direccion: </label>
-            <input ref={direccion} type="text" name="empresaDireccion" />
+            <input className='input' ref={direccion} type="text" name="empresaDireccion" />
+
             <label>Telefono: </label>
-            <input ref={telefono} type="text" name="empresaTelefono" />
+            <input className='input' ref={telefono} type="text" name="empresaTelefono" />
+            
             <button onClick={save}>Agregar</button>
         </div>
    

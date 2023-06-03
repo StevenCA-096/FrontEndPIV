@@ -43,33 +43,28 @@ const AgregarCandidato = () => {
     descripcion.current.value = "";
   }
 
+
   return (
     <>
-    <div >Agregar nuevo candidato</div>
-    <div >
-      <label htmlFor="nombre">Nombre: </label>
-      <input ref={nombre} type="text" id="nombre"/>
+    <h2>Agregar candidato</h2>
+    <div id='input-container'>
+      
+      <input ref={nombre} type="text" id="nombre" placeholder='Nombre'/>
+     
+      <input placeholder='Primer apellido' ref={apellido1} type="text" id="ap1"/>
 
-      <label htmlFor="ap1">Primer apellido: </label>
-      <input ref={apellido1} type="text" id="ap1"/>
+      <input placeholder='Segundo apellido' className='input' ref={apellido2} type="text" id="ap2"/>
 
-      <label htmlFor="ap2">Segundo apellido: </label>
-      <input ref={apellido2} type="text" id="ap2"/>
+      <input placeholder='Fecha de nacimiento' className='input' ref={fechaNacimiento} type="text" id="fechan"/>
+         
+      <input placeholder='direccion'className='input' ref={direccion} type="text" id="direccion"/>     
 
-      <label htmlFor="fechan">Fecha de nacimiento: </label>
-      <input ref={fechaNacimiento} type="text" id="fechan"/>
+      <input placeholder='telefono'className='input' ref={telefono} type="text" id="telefono"/>
 
-      <label htmlFor="direccion">Direccion: </label>
-      <input ref={direccion} type="text" id="direccion"/>
-
-      <label htmlFor="telefono">Telefono: </label>
-      <input ref={telefono} type="text" id="telefono"/>
-
-      <label htmlFor="descripcion">descripcion: </label>
-      <input ref={descripcion} type="text" id="descripcion"/>
-
+      <input placeholder='descripcion' className='input' ref={descripcion} type="text" id="descripcion"/>
+      </div>
       <button onClick={save}>Agregar</button>
-    </div>
+         
     </>
   )
 }
