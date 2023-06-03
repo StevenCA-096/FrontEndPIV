@@ -17,14 +17,10 @@ const ListaCandidatos = () => {
       
   return (
     <>
-    <div>
-        <button onClick={toggleVisibility}>Mostrar</button>
-        {isVisible && (
+    
         <div>
          <AgregarCandidato/><br />
         </div>
-      )}
-    </div>
     
     <div>ListaCandidatos</div><br />
     <div>
