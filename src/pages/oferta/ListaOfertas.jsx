@@ -15,12 +15,13 @@ const ListaOfertas = () => {
     <>   
     <AgregarOferta/><br />
     <h1>ListaOfertas</h1>
-    <div>
+    <div >
     {
             data.map((oferta) =>
-            <div key={oferta.id}>
-                {oferta.descripcion}
-                <hr />
+            <div key={oferta.id} className='offer-container'>
+                <span>{oferta.descripcion}</span> <br />
+                <button className='btnoffer'>Aplly to this offer</button>
+                
             </div>
             )
         }
