@@ -23,7 +23,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
          <Route path="/empresa" element={<ListaEmpresas />} />
          <Route path="/oferta" element={<ListaOfertas />} />
          <Route path="/candidato" element={<ListaCandidatos />} />
-         <Route path="/candidato/components" element={<Editar />} />
+         <Route path="/candidato/components/:id" element={<Editar />} />
         </Route>
       </Routes>
       </BrowserRouter>

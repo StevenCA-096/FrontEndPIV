@@ -1,3 +1,4 @@
+import axios from "axios";
 import api from "../../api/config";
 
 export const getCandidato = async () => { 
@@ -15,6 +16,6 @@ export const deleteCandidato = async (id) => {
     return data;
 };
 export const getCandidatoById = async(id) => {
-    let data = await api.get('candidato',id).then(result =>result.data);
+    let data = await axios.get('candidato',id).then(result =>result.data);
     return data;
 }
