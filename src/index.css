@@ -109,7 +109,7 @@ input:focus {
 }
 
 table {
-  width: 100%;
+  width: fit-content;
   border-collapse: collapse;
 }
 
@@ -126,12 +126,7 @@ th {
   background-color: gold;
 }
 
-tr:nth-child(even) {
- 
-}
-.tablebtn{
-  size: 10px;
-}
+
 .input-container {
   width: 100%;
 }

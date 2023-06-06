@@ -1,4 +1,4 @@
-import api from "../api/config";
+import api from "../../api/config";
 
 export const getCandidato = async () => { 
     let data = await api.get('candidatooferta').then(result => result.data);

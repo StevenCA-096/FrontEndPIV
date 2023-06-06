@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRef } from "react";
 import { QueryClient, useMutation } from "react-query";
-import { create } from '../../../Services/CandidatoService';
+import { create } from '../../../Services/CandidatoServices/CandidatoService';
 
 
 const AgregarCandidato = () => {
