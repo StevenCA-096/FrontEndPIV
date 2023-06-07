@@ -37,10 +37,14 @@ const Editar = () => {
           ("No agrego formaciones")
           
         }
+        
         {
           Candidato.candidatoOfertas!= null? (
             Candidato.candidatoOfertas.map((ofertas)=>
-          <div><span>{ofertas.candidatoId}</span></div>
+          <div>
+            <h2>Ofertas</h2>
+            <span>{ofertas.candidatoId}</span>
+          </div>
           )
           ):("Este candidato no esta aplicando a ninguna oferta")
           
@@ -48,7 +52,10 @@ const Editar = () => {
         {
           Candidato.candidatoHabilidades!= null?(
             Candidato.candidatoHabilidades.map((habilidades)=>
+            <div>
+              <h2>Habilidades</h2>
             <span>{habilidades.habilidadId}</span>
+            </div>
             )
           ):("Este candidato no agrego habilidades")
         }
