@@ -17,7 +17,7 @@ const ListaCandidatos = () => {
         return <div>Error</div>
 
     const deleteCandidato = (id) => {
-        const idCandidato = id;
+        const idCandidato = id.id;
         console.log("Id del candidato: ", idCandidato);
         deleteCandidato(idCandidato);
     }
@@ -28,7 +28,7 @@ const ListaCandidatos = () => {
                 <AgregarCandidato /><br />
                 
             </div>
-            <div>ListaCandidatos</div><br />
+            <div>Lista Candidatos</div><br />
             <div>
                 <table>
                     <thead >
