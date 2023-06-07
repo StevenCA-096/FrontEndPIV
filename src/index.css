@@ -155,5 +155,10 @@ th {
   margin: 10px;
   border: 4px solid yellow;
 }
+.infoc{
+  margin: 10px;
+	border: 2px solid yellow;
+  border-radius: 10px;
+}
 
 

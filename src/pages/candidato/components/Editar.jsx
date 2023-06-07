@@ -1,21 +1,32 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { getCandidatoById } from '../../../Services/CandidatoServices/CandidatoService';
-import { useQuery } from 'react-query';
 import { useParams } from 'react-router';
 
 const Editar = () => {
-  const id = useParams();
-  const { data, isLoading, isError } = useQuery('candidato', getCandidatoById(id));
-  
-   if(isLoading)
-     return <div>Loading...</div>
+  const candidatoParams = useParams();
 
-     if(isError)
-     return <div>Error</div>
-  console.log(data);
+  const [Candidato,setcandidato]= useState(null)
+ 
+   useEffect(()=>{
+     getCandidatoById(candidatoParams.id, setcandidato)
+   },[])
+  
   return (
     <>
-    <div><h2>Informacion del candidato </h2></div>
+    {Candidato!=null? (
+      <>
+      <div><h2>Informacion del candidato </h2></div>
+      <div className='infoc'>
+        <span>Nombre completo: {Candidato.nombre} {Candidato.apellido1} {Candidato.apellido2}</span>
+        <br /><span>Direccion: {Candidato.direccion}</span>
+        <br /><span>Descripcion: {Candidato.descripcion}</span>
+        {Candidato.candidatoOfertas.map((offers)=>
+        {offers.ofertaId}
+        )}
+      </div>
+      </>
+    ):('Cargando')}
+    
     </>
 
   )

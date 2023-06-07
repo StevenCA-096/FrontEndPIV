@@ -9,7 +9,6 @@ import Editar from './components/Editar'
 const ListaCandidatos = () => {
     const queryClient = new QueryClient();
     const { data, isLoading, isError } = useQuery('candidato', getCandidato);
-    const { idBuscar, setIdBuscar } = useState('');
 
     if (isLoading)
         return <div>Loading...</div>

@@ -15,7 +15,15 @@ export const deleteCandidato = async (id) => {
     let data = await api.delete('candidato',id).then(result => result.data);
     return data;
 };
-export const getCandidatoById = async(id) => {
-    let data = await axios.get('candidato',id).then(result =>result.data);
-    return data;
-}
+
+// export const getCandidatoById = async (id) => { 
+//     let data = await api.get('candidato',id).then(result => result.data);
+//     return data;
+// };
+
+ export const getCandidatoById = async(id,state) => {
+     let data = await axios.get(`https://localhost:7210/api/Candidato/${id}`);
+     console.log(data.data)
+     state(data.data)
+     return data.data;
+ }
