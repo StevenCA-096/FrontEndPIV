@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { getCandidatoById } from '../../../Services/CandidatoServices/CandidatoService';
 import { useParams } from 'react-router';
+import ListaFormaciones from '../../formacion/ListaFormaciones';
 
 const Editar = () => {
   const candidatoParams = useParams();
@@ -62,8 +63,12 @@ const Editar = () => {
       </div>
       </>
     ):('Cargando')}
+
+              <div>
+                <ListaFormaciones/><br />  
+            </div>
     
-    </>
+    </>  
 
   )
 }
