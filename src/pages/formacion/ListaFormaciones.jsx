@@ -1,3 +1,4 @@
+
 import { useQuery, useMutation, QueryClient } from 'react-query'
 
 import { getFormacion } from '../../Services/FormacionService'
@@ -20,7 +21,9 @@ const ListaFormaciones = () => {
     useEffect(() => {
         if (data) {
           const formacionesFiltradas = data.filter(
+
             (formacion) => formacion.candidatoId === parseInt(candidatoParams.id)
+
           );
           console.log('getFormacion:', data);
           console.log('candidatoParams.id:', candidatoParams.id);
@@ -38,6 +41,7 @@ const ListaFormaciones = () => {
         if (formacionesCandidato.length === 0) {
             return <div>El candidato no tiene formaciones</div>;
           }
+
 
           console.log('formacionesCandidato:', formacionesCandidato);
 
@@ -61,6 +65,7 @@ const ListaFormaciones = () => {
                         {
                             formacionesCandidato.map((formacion) =>
                                 <>
+
                                     <tr key={formacion.id}>{formacion.nombre}
                                         <td>{formacion.años_Estudio}</td>
                                         <td>{formacion.fecha_Culminacion}</td>
