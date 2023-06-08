@@ -12,7 +12,7 @@ export const create = async (formacion) => {
 };
 
 export const deleteFormacion = async (id) => { 
-    let data = await api.delete('formacion',id).then(result => result.data);
+    let data = await axios.delete(`https://localhost:7210/api/Formacion/${id}`);
     return data;
 };
 

@@ -30,22 +30,6 @@ const Editar = () => {
         <br /><span>Descripcion: {Candidato.descripcion}</span>
         <br /><span>Telefono: {Candidato.telefono}</span>
         </div>
-        {
-          Candidato.formaciones!=null?(
-            Candidato.formaciones.map((formacion)=>
-            <div>
-              <h2>Formaciones</h2>
-              <span>Titulo: {formacion.nombre}</span>
-              <br /><span>Años de estudio: {formacion.años_Estudio}</span>
-              <br /><span>Culminacion: {formacion.nombre}</span>
-            </div>
-          )
-          ):
-          (
-            <span>No agrego formaciones</span>
-          )
-          
-        }
         
         {
           Candidato.candidatoOfertas!= null? (

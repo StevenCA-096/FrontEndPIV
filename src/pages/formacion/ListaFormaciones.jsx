@@ -40,6 +40,7 @@ const ListaFormaciones = () => {
           }
 
           console.log('formacionesCandidato:', formacionesCandidato);
+          
 
     return (
         <>
@@ -66,7 +67,7 @@ const ListaFormaciones = () => {
                                         <td>{formacion.años_Estudio}</td>
                                         <td>{formacion.fecha_Culminacion}</td>
                                         <td>
-                                            <button className='tablebtn' onClick={() => deleteFormacion(candidato.id)}>Eliminar</button>
+                                            <button className='tablebtn' onClick={() => deleteFormacion(formacion.id)}>Eliminar</button>
                                         </td>
                                     </tr>
 

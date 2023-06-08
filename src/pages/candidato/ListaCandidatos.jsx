@@ -42,7 +42,8 @@ const ListaCandidatos = () => {
                         {
                             data.map((candidato) =>
                                 <>
-                                    <tr key={candidato.id}>{candidato.id}
+                                    <tr key={candidato.id}>
+                                        <td>{candidato.id}</td>
                                         <td>{candidato.nombre}</td>
                                         <td>{candidato.telefono}</td>
                                         <td>
