@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { getCandidatoById } from '../../../Services/CandidatoServices/CandidatoService';
 import { useParams } from 'react-router';
-
+import { NavLink } from 'react-router-dom';
 const Editar = () => {
   const candidatoParams = useParams();
 
@@ -67,6 +67,9 @@ const Editar = () => {
             <span>Este candidato no agrego habilidades</span>
           )
         }
+        <div>
+          
+        </div>
       </div>
       </>
     ):('Cargando')}

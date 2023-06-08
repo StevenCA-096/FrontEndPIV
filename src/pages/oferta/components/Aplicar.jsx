@@ -32,7 +32,7 @@ const Aplicar = ({ param }) => {
   const mutation = useMutation("CandidatoOferta",createCandidatoOferta,
   {
       onSettled:()=>queryClient.invalidateQueries("CandidatoOferta"),
-      mutationKey: "C   andidatoOferta"
+      mutationKey: "CandidatoOferta"
   })
 
   const save = (idCandidato) =>{
@@ -51,10 +51,11 @@ const Aplicar = ({ param }) => {
         isOpen={isOpen}
         onRequestClose={closeModal}
         contentLabel="Cuadro de diálogo"
+        
       >
         <h2>Cuadro de diálogo</h2>
         <p>Parámetro recibido: {param}</p>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} >
           <label>
             Entrada:
             <input type="text" onChange={handleInputChange} placeholder="Id del candidato"/>
