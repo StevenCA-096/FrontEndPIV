@@ -37,8 +37,8 @@ const Aplicar = ({ param }) => {
 
   const save = (idCandidato) =>{
     let candidatoOferta = {
-        candidatoId: parseInt(idCandidato),
-        ofertaId: parseInt(param),
+        candidatoId: parseInt(param),
+        ofertaId: parseInt(idCandidato),
     };
     mutation.mutateAsync(candidatoOferta)
     console.log(candidatoOferta)
