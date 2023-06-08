@@ -154,11 +154,7 @@ th {
   margin: 10px;
   border: 4px solid yellow;
 }
-.infoc{
-  margin: 10px;
-	border: 2px solid yellow;
-  border-radius: 10px;
-}
+
 
 .modalOffer{
   width: 300px;
@@ -168,4 +164,22 @@ th {
 .formaplly{
   width: 300px;
   height: 300px;
+}
+.contentc{
+  display: flex;
+  flex-direction: row;
+  position: left;
+  justify-content: space-around;
+}
+.infoc{
+  margin: 1px;
+	border: 2px solid yellow;
+  border-radius: 10px;
+  width: 20%;
+}
+.listformaciones{
+  width: 30%;
+}
+.listocanOfertas{
+  width: 30%;
 }

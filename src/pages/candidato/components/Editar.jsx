@@ -3,7 +3,7 @@ import { getCandidatoById } from '../../../Services/CandidatoServices/CandidatoS
 import { useParams } from 'react-router';
 
 import ListaFormaciones from '../../formacion/ListaFormaciones';
-
+import OfertasCandidato from './ofertasCandidato';
 
 import { NavLink } from 'react-router-dom';
 
@@ -20,6 +20,7 @@ const Editar = () => {
   
   return (
     <>
+    <div className='contentc'>
     {Candidato!=null? (
       <>
       <div className='infoc'>
@@ -63,10 +64,13 @@ const Editar = () => {
       </>
     ):('Cargando')}
 
-              <div>
+            <div className='listformaciones'>
                 <ListaFormaciones/><br />  
             </div>
-    
+            <div className='listocanOfertas'>
+              <OfertasCandidato/>
+            </div>
+    </div>
     </>  
 
   )
