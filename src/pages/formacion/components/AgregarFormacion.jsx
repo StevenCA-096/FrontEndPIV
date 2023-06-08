@@ -1,10 +1,15 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import { useRef } from "react";
 import { QueryClient, useMutation } from "react-query";
 import { create } from '../../../Services/FormacionService';
 
+
+import { useParams } from 'react-router';
+
 const AgregarFormacion = () => {
     const queryClient = new QueryClient();
+
+    const candidatoParams = useParams();
   
     const nombre = useRef();
     const Años_Estudio = useRef();
@@ -17,10 +22,12 @@ const AgregarFormacion = () => {
       })
   
       const save = ()=>{
-        let nuevaFormacion = {       
+        let nuevaFormacion = {     
+            candidatoId:candidatoParams.id, 
             nombre:nombre.current.value,
-            Años_Estudio: parseInt(Años_Estudio.current.value),
-            Fecha_Culminacion:Fecha_Culminacion.current.value
+            años_Estudio: parseInt(Años_Estudio.current.value),
+            fecha_Culminacion:Fecha_Culminacion.current.value
+            
         };
         mutation.mutateAsync(nuevaFormacion);
         limpiarInput()

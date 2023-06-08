@@ -61,11 +61,12 @@ const ListaFormaciones = () => {
                         {
                             formacionesCandidato.map((formacion) =>
                                 <>
-                                    <tr key={formacion.id}>{formacion.nombre}
+                                    <tr key={formacion.id}>
+                                        <td>{formacion.nombre}</td>
                                         <td>{formacion.años_Estudio}</td>
                                         <td>{formacion.fecha_Culminacion}</td>
                                         <td>
-                                            <button className='tablebtn' onClick={() => deleteCandidato(candidato.id)}>Eliminar</button>
+                                            <button className='tablebtn' onClick={() => deleteFormacion(candidato.id)}>Eliminar</button>
                                         </td>
                                     </tr>
 
