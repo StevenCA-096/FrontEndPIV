@@ -2,7 +2,7 @@ import React from 'react'
 import { getOfertas } from '../../Services/OfertaService';
 import { useQuery } from 'react-query';
 import AgregarOferta from './components/AgregarOferta';
-
+import Aplicar from './components/Aplicar';
 const ListaOfertas = () => {
     const { data, isLoading, isError } = useQuery('oferta', getOfertas);
     if(isLoading)
@@ -20,7 +20,7 @@ const ListaOfertas = () => {
             data.map((oferta) =>
             <div key={oferta.id} className='offer-container'>
                 <span>{oferta.descripcion}</span> <br />
-                <button className='btnoffer'>Aplly to this offer</button>
+                <Aplicar param={oferta.id}></Aplicar>
                 
             </div>
             )

@@ -1,11 +1,12 @@
 import api from "../../api/config";
 
-export const getCandidato = async () => { 
+export const getCandidatoOferta = async () => { 
     let data = await api.get('candidatooferta').then(result => result.data);
+    console.log(data)
     return data;
 };
 
-export const create = async (empresa) => { 
-    let data = await api.post('candidatooferta',empresa).then(result => result.data);
+export const createCandidatoOferta = async (candidatooferta) => { 
+    let data = await api.post('CandidatoOferta',candidatooferta).then(result => result.data);
     return data;
 };

@@ -12,7 +12,7 @@ export const create = async (empresa) => {
 };
 
 export const deleteCandidato = async (id) => { 
-    let data = await api.delete('candidato',id).then(result => result.data);
+    let data = await axios.delete(`https://localhost:7210/api/Candidato/${id}`);
     return data;
 };
 

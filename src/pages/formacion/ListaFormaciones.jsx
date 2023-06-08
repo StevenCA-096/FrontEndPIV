@@ -21,7 +21,9 @@ const ListaFormaciones = () => {
     useEffect(() => {
         if (data) {
           const formacionesFiltradas = data.filter(
-            (formacion) => formacion.CandidatoId === candidatoParams.id
+
+            (formacion) => formacion.candidatoId === parseInt(candidatoParams.id)
+
           );
           console.log('getFormacion:', data);
           console.log('candidatoParams.id:', candidatoParams.id);
@@ -39,6 +41,9 @@ const ListaFormaciones = () => {
         if (formacionesCandidato.length === 0) {
             return <div>El candidato no tiene formaciones</div>;
           }
+
+
+          console.log('formacionesCandidato:', formacionesCandidato);
 
     return (
         <>
@@ -60,9 +65,10 @@ const ListaFormaciones = () => {
                         {
                             formacionesCandidato.map((formacion) =>
                                 <>
-                                    <tr key={formacion.id}>{formacion.Nombre}
-                                        <td>{formacion.Años_Estudio}</td>
-                                        <td>{formacion.Fecha_Culminacion}</td>
+
+                                    <tr key={formacion.id}>{formacion.nombre}
+                                        <td>{formacion.años_Estudio}</td>
+                                        <td>{formacion.fecha_Culminacion}</td>
                                         <td>
                                             <button className='tablebtn' onClick={() => deleteCandidato(candidato.id)}>Eliminar</button>
                                         </td>

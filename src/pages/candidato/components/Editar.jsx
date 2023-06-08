@@ -1,7 +1,11 @@
 import React, {useEffect, useState} from 'react'
 import { getCandidatoById } from '../../../Services/CandidatoServices/CandidatoService';
 import { useParams } from 'react-router';
+
 import ListaFormaciones from '../../formacion/ListaFormaciones';
+
+
+import { NavLink } from 'react-router-dom';
 
 const Editar = () => {
   const candidatoParams = useParams();
@@ -19,11 +23,13 @@ const Editar = () => {
     {Candidato!=null? (
       <>
       <div className='infoc'>
-      <h2>Informacion del candidato </h2>
+        <div>
+       <h2>Informacion del candidato </h2>
         <span>Nombre completo: {Candidato.nombre} {Candidato.apellido1} {Candidato.apellido2}</span>
         <br /><span>Direccion: {Candidato.direccion}</span>
         <br /><span>Descripcion: {Candidato.descripcion}</span>
         <br /><span>Telefono: {Candidato.telefono}</span>
+        </div>
         {
           Candidato.formaciones!=null?(
             Candidato.formaciones.map((formacion)=>
@@ -35,7 +41,9 @@ const Editar = () => {
             </div>
           )
           ):
-          ("No agrego formaciones")
+          (
+            <span>No agrego formaciones</span>
+          )
           
         }
         
@@ -47,7 +55,9 @@ const Editar = () => {
             <span>{ofertas.candidatoId}</span>
           </div>
           )
-          ):("Este candidato no esta aplicando a ninguna oferta")
+          ):(
+            <span>Este candidato no esta aplicando a ninguna oferta</span>
+          )
           
         }
         {
@@ -58,8 +68,13 @@ const Editar = () => {
             <span>{habilidades.habilidadId}</span>
             </div>
             )
-          ):("Este candidato no agrego habilidades")
+          ):(
+            <span>Este candidato no agrego habilidades</span>
+          )
         }
+        <div>
+          
+        </div>
       </div>
       </>
     ):('Cargando')}
