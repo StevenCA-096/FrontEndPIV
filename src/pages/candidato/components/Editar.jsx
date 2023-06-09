@@ -67,8 +67,11 @@ const Editar = () => {
             <div className='listformaciones'>
                 <ListaFormaciones/><br />  
             </div>
+            
             <div className='listocanOfertas'>
-              <OfertasCandidato/>
+              {Candidato!=null?
+              (<OfertasCandidato candidato={Candidato}/>):("Loading")
+              }            
             </div>
     </div>
     </>  

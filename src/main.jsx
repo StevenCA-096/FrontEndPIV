@@ -13,6 +13,7 @@ import ListaFormaciones from './pages/formacion/ListaFormaciones'
 
 import Home from './pages/home/Home'
 import Editar from './pages/candidato/components/Editar'
+import Habilidades from './pages/Habilidades/habilidades'
 
 const queryClient = new QueryClient()
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -28,6 +29,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
          <Route path="/formacion" element={<ListaFormaciones />} />
          <Route path="/candidato" element={<ListaCandidatos />} />
          <Route path="/candidato/components/:id" element={<Editar />} />
+         <Route path="/Habilidades/:id" element={<Habilidades/>}/>
         </Route>
       </Routes>
       </BrowserRouter>
