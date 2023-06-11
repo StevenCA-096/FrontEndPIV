@@ -1,4 +1,4 @@
-import Login from "../login/login"
+
 const Home = () => {
   return (
     <>
