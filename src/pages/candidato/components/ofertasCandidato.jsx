@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { getCandidatoById } from '../../../Services/CandidatoServices/CandidatoService'
 import { useQuery } from 'react-query'
+
 const ofertasCandidato = (candidato) => {
     let data = candidato.candidato;
     // let id = idParam
@@ -18,6 +19,7 @@ const ofertasCandidato = (candidato) => {
       )
     }
     </ul>
+
     </>
   )
 }
