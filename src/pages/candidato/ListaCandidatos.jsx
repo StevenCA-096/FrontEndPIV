@@ -47,8 +47,10 @@ const ListaCandidatos = () => {
                                         <td>{candidato.nombre}</td>
                                         <td>{candidato.telefono}</td>
                                         <td>
+
                                             <NavLink className='tablebtn' to={`components/${candidato.id}`}>Examinar</NavLink>
                                             <NavLink className='tablebtn' to={'habilidades'}>Habilidades</NavLink>
+
                                             <button className='tablebtn' onClick={() => deleteCandidato(candidato.id)}>Eliminar</button>
                                         </td>
                                     </tr>

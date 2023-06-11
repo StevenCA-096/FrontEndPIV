@@ -1,15 +1,25 @@
 import React, { useState } from 'react'
 import { getCandidatoById } from '../../../Services/CandidatoServices/CandidatoService'
 import { useQuery } from 'react-query'
-const ofertasCandidato = (Candidato) => {
-    let can = Candidato
-    console.log(can)
+
+const ofertasCandidato = (candidato) => {
+    let data = candidato.candidato;
+    // let id = idParam
+    // const { data, isLoading, isError } = useQuery('oferta', getCandidatoById(id));
+    // const [formaciones,setFormaciones] = useState();
+
+    console.log(data)
   return (
     <>
-    <div>
-       <h2>Ofertas a las que aplica el candidato</h2> 
-       
-    </div>
+    <div><h3>Ofertas en las que participa:</h3></div>
+    <ul>
+    {
+      data.ofertas.map((ofertasC)=>
+      <li>{ofertasC.descripcion}</li>
+      )
+    }
+    </ul>
+
     </>
   )
 }
