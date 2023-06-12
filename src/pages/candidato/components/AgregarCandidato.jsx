@@ -40,6 +40,7 @@ const AgregarCandidato = () => {
     apellido2.current.value = "";
     fechaNacimiento.current.value = "";
     direccion.current.value = "";
+    telefono.current.value = "";
     descripcion.current.value = "";
   }
 

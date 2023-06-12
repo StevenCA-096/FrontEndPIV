@@ -44,10 +44,6 @@ const ListaFormaciones = () => {
 
     return (
         <>
-            <div>
-                <AgregarFormacion /><br />
-                
-            </div>
             <div>Lista de formaciones</div><br />
             <div>
                 <table>

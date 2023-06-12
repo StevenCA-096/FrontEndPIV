@@ -20,6 +20,17 @@ const ListaOfertas = () => {
             data.map((oferta) =>
             <div key={oferta.id} className='offer-container'>
                 <span>{oferta.descripcion}</span> <br />
+                
+                {
+                oferta.habilidades.map((habs) =>
+                <div>
+                  <span>Habilidades buscadas: </span>
+                <ul>
+                  <li>{habs.nombre}</li>
+                </ul>
+                </div>
+                )
+                }
                 <Aplicar param={oferta.id}></Aplicar>
                 
             </div>

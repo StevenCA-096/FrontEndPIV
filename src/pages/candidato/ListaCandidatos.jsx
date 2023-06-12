@@ -41,13 +41,13 @@ export const ListaCandidatos = () => {
             <div>
                 <table>
                     <thead >
-                        <tr>
+                        
                             <th>Id</th>
                             <th>nombre</th>
                             <th>Telefono</th>
+                            <th>Email</th>
                             <th>Acciones</th>
-                        </tr>
-
+                                              
                         {
                             data.map((candidato) =>
                                 <>
@@ -55,6 +55,7 @@ export const ListaCandidatos = () => {
                                         <td>{candidato.id}</td>
                                         <td>{candidato.nombre}</td>
                                         <td>{candidato.telefono}</td>
+                                        <td>{candidato.direccion}</td>
                                         <td>
 
                                             <NavLink className='tablebtn' to={`components/${candidato.id}`}>Examinar</NavLink>
@@ -70,7 +71,7 @@ export const ListaCandidatos = () => {
 
                                 </>
                             )}
-                    </thead>
+                   </thead> 
                 </table>
 
             </div>
