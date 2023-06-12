@@ -2,11 +2,14 @@ import React, { useState } from "react";
 import Modal from "react-modal";
 import { QueryClient, useMutation } from "react-query";
 import { createCandidatoOferta } from "../../../Services/CandidatoServices/CandidatoOfertaService";
+import { getCandidato } from "../../../Services/CandidatoServices/CandidatoService";
+import { useQuery } from "react-query";
 
 const Aplicar = ({ param }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [inputValue, setInputValue] = useState("");
-
+  const { data, isLoading, isError } = useQuery('candidato', getCandidato);
+  
   const openModal = () => {
     setIsOpen(true);
     console.log(param)
@@ -25,6 +28,7 @@ const Aplicar = ({ param }) => {
     console.log("Input value:", inputValue);
     closeModal();
     save(inputValue);
+
   };
 
   const queryClient = new QueryClient();
@@ -36,13 +40,24 @@ const Aplicar = ({ param }) => {
   })
 
   const save = (idCandidato) =>{
-    let candidatoOferta = {
-        candidatoId: parseInt(param),
-        ofertaId: parseInt(idCandidato),
+    
+      const candidato = data.filter(
+        (candidato) => candidato.direccion === inputValue
+      );
+
+      let idc = candidato[0].id;
+
+      console.log("ID"+idc)
+      let candidatoOferta = {
+        candidatoId: idc,
+        ofertaId: parseInt(param)
     };
     mutation.mutateAsync(candidatoOferta)
     console.log(candidatoOferta)
+    
+    
   }
+
 
   return (
     <div>

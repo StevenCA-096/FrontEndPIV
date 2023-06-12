@@ -32,19 +32,7 @@ const Editar = () => {
         <br /><span>Telefono: {Candidato.telefono}</span>
         </div>
         
-        {
-          Candidato.candidatoOfertas!= null? (
-            Candidato.candidatoOfertas.map((ofertas)=>
-          <div>
-            <h2>Ofertas</h2>
-            <span>{ofertas.candidatoId}</span>
-          </div>
-          )
-          ):(
-            <span>Este candidato no esta aplicando a ninguna oferta</span>
-          )
-          
-        }
+        
         {
           Candidato.candidatoHabilidades!= null?(
             Candidato.candidatoHabilidades.map((habilidades)=>
