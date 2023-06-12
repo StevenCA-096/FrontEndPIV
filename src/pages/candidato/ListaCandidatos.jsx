@@ -1,12 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState , createContext, useContext } from 'react'
 import { getCandidato } from '../../Services/CandidatoServices/CandidatoService'
-import { useQuery, useMutation, QueryClient } from 'react-query'
+import { useQuery, useMutation, QueryClient} from 'react-query'
 import AgregarCandidato from './components/AgregarCandidato'
 import { NavLink } from 'react-router-dom'
 import { deleteCandidato } from '../../Services/CandidatoServices/CandidatoService'
 import Editar from './components/Editar'
 
-const ListaCandidatos = () => {
+import CandidatoContext from './components/CandidatoContext';
+
+export const ListaCandidatos = () => {
+
+    const { setCandidatoId } = useContext(CandidatoContext);
+    
+    const handleNavLinkClick = (candidatoId) => {
+        setCandidatoId(candidatoId);
+      };
+
     const queryClient = new QueryClient();
     const { data, isLoading, isError } = useQuery('candidato', getCandidato);
 
@@ -49,7 +58,11 @@ const ListaCandidatos = () => {
                                         <td>
 
                                             <NavLink className='tablebtn' to={`components/${candidato.id}`}>Examinar</NavLink>
-                                            <NavLink className='tablebtn' to={'habilidades'}>Habilidades</NavLink>
+                                            
+                                            <NavLink className='tablebtn' to={'/habilidades'} 
+                                            onClick={() => handleNavLinkClick(candidato.id)}
+                                            
+                                            > Habilidades </NavLink>
 
                                             <button className='tablebtn' onClick={() => deleteCandidato(candidato.id)}>Eliminar</button>
                                         </td>
@@ -61,8 +74,9 @@ const ListaCandidatos = () => {
                 </table>
 
             </div>
+            
         </>
     )
 }
 
-export default ListaCandidatos
+export default ListaCandidatos;
