@@ -1,10 +1,10 @@
 import api from "../../api/config";
 import axios from "axios";
 
-export const getCandidatoHabilidad = async () => { 
+export const getCandidatoHabilidad = async (state) => { 
     let data = await api.get('candidatohabilidad').then(result => result.data);
-    
-    console.log(data)
+    state(data)
+    //console.log(data)
     return data;
 };
 

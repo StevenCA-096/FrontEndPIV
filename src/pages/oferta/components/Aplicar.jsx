@@ -65,7 +65,7 @@ const Aplicar = ({ param }) => {
       <Modal
         isOpen={isOpen}
         onRequestClose={closeModal}
-        contentLabel="Cuadro de diálogo"
+        contentLabel="Aplicar"
         
       >
         <h2>Cuadro de diálogo</h2>
@@ -73,7 +73,7 @@ const Aplicar = ({ param }) => {
         <form onSubmit={handleSubmit} >
           <label>
             Entrada:
-            <input type="text" onChange={handleInputChange} placeholder="Id del candidato"/>
+            <input type="text" onChange={handleInputChange} placeholder="Email del candidato"/>
           </label>
           <button type="submit">Enviar</button>
         </form>

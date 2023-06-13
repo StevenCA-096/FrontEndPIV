@@ -11,36 +11,45 @@ const ListaHabilidades = () => {
 
   const queryClient = new QueryClient();
   const { data, isLoading, isError } = useQuery('habilidades', getHabilidades);
-  const { data2,isLoading2, isError2 } = useQuery('candidatohabilidad', getCandidatoHabilidad);
+  //const { data2} = useQuery('candidadohabilidad',getCandidatoHabilidad);
   const [botonesEncendidos, setBotonesEncendidos] = useState([]);
+  const [canHab,setCanHab] = useState();
 
-  const CambiarEstadoBoton = (habilidadId) => {
-    if (botonesEncendidos.includes(habilidadId)) {
-      setBotonesEncendidos(botonesEncendidos.filter((id) => id === habilidadId));
-    } else {
-      setBotonesEncendidos([...botonesEncendidos, habilidadId]);
-    }
-  }
+  
+
+  
 
   const { candidatoId } = useContext(CandidatoContext);
   const { candidatoId2 } = useContext(CandidatoContext);
   const [habilidadesCandidato, sethabilidadesCandidato] = useState([]);
 
+  useState(()=>
+  getCandidatoHabilidad(setCanHab)
+)
+
   useEffect(() => {
     
-    if (data2 !=null) {
+    if (canHab!=null) {
       
-      const candidatohabilidades_Filtradas = data2.filter(
+      const candidatohabilidades_Filtradas = canHab.filter(
         (candidatohabilidad) => candidatohabilidad.candidatoId === candidatoId
       );
       sethabilidadesCandidato(candidatohabilidades_Filtradas);
     }
-    console.log(data2)
-  }, [data2, candidatoId2]);
-
-  console.log('CandidatoId del context :', candidatoId);
+    
+  }, [canHab, candidatoId]);
+  console.log(canHab)
+  //console.log('CandidatoId del context :', candidatoId);
   console.log('habilidadesFiltradas: ', habilidadesCandidato,candidatoId);
 
+
+  const CambiarEstadoBoton = (habilidadId) => {
+    if (habilidadesCandidato.includes(habilidadId)) {
+      setBotonesEncendidos(botonesEncendidos.filter((id) => id === habilidadId));
+    } else {
+      setBotonesEncendidos([...botonesEncendidos, habilidadId]);
+    }
+  }
   
   const btnHabilidadesRef = useRef([]);
 
@@ -60,7 +69,7 @@ const ListaHabilidades = () => {
       HabilidadId:habilidadId
     };
 
-    className === `btn-skill active`? //Tiene que estar al reves porque el classname del parametro ya fue alternado
+    className == `btn-skill active`? //Tiene que estar al reves porque el classname del parametro ya fue alternado
   
     deleteCandidatoHabilidad(candidatoId, habilidadId)
     : mutationCreate.mutateAsync(CandidatoHabilidadCREATE)
