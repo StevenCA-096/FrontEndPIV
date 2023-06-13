@@ -11,7 +11,7 @@ const ListaHabilidades = () => {
 
   const queryClient = new QueryClient();
   const { data, isLoading, isError } = useQuery('habilidades', getHabilidades);
-
+  const { data2,isLoading2, isError2 } = useQuery('candidatohabilidad', getCandidatoHabilidad);
   const [botonesEncendidos, setBotonesEncendidos] = useState([]);
 
   const CambiarEstadoBoton = (habilidadId) => {
@@ -24,21 +24,22 @@ const ListaHabilidades = () => {
 
   const { candidatoId } = useContext(CandidatoContext);
   const { candidatoId2 } = useContext(CandidatoContext);
-
-  const { data2} = useQuery('candidatohabilidad', getCandidatoHabilidad);
   const [habilidadesCandidato, sethabilidadesCandidato] = useState([]);
 
   useEffect(() => {
-    if (data2) {
+    
+    if (data2 !=null) {
+      
       const candidatohabilidades_Filtradas = data2.filter(
-        (candidatohabilidad) => candidatohabilidad.candidatoId === candidatoId2
+        (candidatohabilidad) => candidatohabilidad.candidatoId === candidatoId
       );
       sethabilidadesCandidato(candidatohabilidades_Filtradas);
     }
+    console.log(data2)
   }, [data2, candidatoId2]);
 
   console.log('CandidatoId del context :', candidatoId);
-  console.log('habilidadesFiltradas: ', habilidadesCandidato);
+  console.log('habilidadesFiltradas: ', habilidadesCandidato,candidatoId);
 
   
   const btnHabilidadesRef = useRef([]);
@@ -89,7 +90,7 @@ const ListaHabilidades = () => {
                                 onClick={() => {Metodo(habilidad.id, btnHabilidadesRef.current[index].className)}}
                                 
                                 >{habilidad.nombre}
-                                
+                                {habilidad.id}
                                 </button>
                                 </>
                             )}

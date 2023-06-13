@@ -16,10 +16,14 @@ const ofertasCandidato = (candidato) => {
     <div><h3>Ofertas en las que participa:</h3></div>
     <ul>
     {
+      
       data.ofertas.map((ofertasC)=>
-      <li>{ofertasC.descripcion}</li>
+      <li key={ofertasC.ofertaId}>{ofertasC.descripcion}</li>
+      
       )
+      
     }
+    {console.log(data)}
     
     </ul>
     <div>
@@ -27,7 +31,7 @@ const ofertasCandidato = (candidato) => {
       <ul>
         {match!= null? (
           match.map((ofertaFiltro)=> 
-        <li>{ofertaFiltro.descripcion}</li>
+        <li >{ofertaFiltro.descripcion}</li>
         )):("No encontramos ofertas acorde a sus habilidades")}
       </ul>
       </div>
