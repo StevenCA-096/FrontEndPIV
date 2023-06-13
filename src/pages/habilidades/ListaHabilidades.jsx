@@ -35,15 +35,24 @@ const ListaHabilidades = () => {
         (candidatohabilidad) => candidatohabilidad.candidatoId === candidatoId
       );
       sethabilidadesCandidato(candidatohabilidades_Filtradas);
+      
     }
     
   }, [canHab, candidatoId]);
-  console.log(canHab)
+  //console.log(canHab)
   //console.log('CandidatoId del context :', candidatoId);
-  console.log('habilidadesFiltradas: ', habilidadesCandidato,candidatoId);
+  //console.log('habilidadesFiltradas: ', habilidadesCandidato,candidatoId);
 
+  let btns = [];
+  for (let i=0;i<habilidadesCandidato?.length;i++){
+    //console.log(habilidadesCandidato[i].candidatoId)
+    btns.push(habilidadesCandidato[i].candidatoId)
+
+  }
+  console.log(btns)
 
   const CambiarEstadoBoton = (habilidadId) => {
+
     if (habilidadesCandidato.includes(habilidadId)) {
       setBotonesEncendidos(botonesEncendidos.filter((id) => id === habilidadId));
     } else {
@@ -94,7 +103,7 @@ const ListaHabilidades = () => {
                                 key={habilidad.id} 
                                 ref={(element) => (btnHabilidadesRef.current[index] = element)}
 
-                                className={`btn-skill ${botonesEncendidos.includes(habilidad.id) ? 'active' : 'inactive'}`}
+                                className={`btn-skill ${btns.includes(habilidad.id) ? 'active' : 'inactive'}`}
                                  
                                 onClick={() => {Metodo(habilidad.id, btnHabilidadesRef.current[index].className)}}
                                 
