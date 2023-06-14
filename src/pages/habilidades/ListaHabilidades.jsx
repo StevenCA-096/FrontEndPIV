@@ -10,57 +10,47 @@ import CandidatoContext from '../candidato/components/CandidatoContext';
 const ListaHabilidades = () => {
 
   const queryClient = new QueryClient();
-  const { data, isLoading, isError } = useQuery('habilidades', getHabilidades);
-  //const { data2} = useQuery('candidadohabilidad',getCandidatoHabilidad);
-  const [botonesEncendidos, setBotonesEncendidos] = useState([]);
-  const [canHab,setCanHab] = useState();
-
-  
-
-  
-
   const { candidatoId } = useContext(CandidatoContext);
-  const { candidatoId2 } = useContext(CandidatoContext);
-  const [habilidadesCandidato, sethabilidadesCandidato] = useState([]);
+  const btnHabilidadesRef = useRef([]);
 
-  useState(()=>
-  getCandidatoHabilidad(setCanHab)
-)
+  const {data: habilidad, isLoading, isError } = useQuery('habilidades', getHabilidades);
+  //console.log('Aqui deberia ir habilidades:', habilidad);
 
-  useEffect(() => {
-    
-    if (canHab!=null) {
-      
-      const candidatohabilidades_Filtradas = canHab.filter(
+  const { data: candidatoHabilidad} = useQuery('candidatohabilidades', getCandidatoHabilidad);
+  //console.log('Aqui deberia ir habilidadesCandidato:', candidatoHabilidad);
+
+  const SetearBotones = [];
+
+  if (candidatoHabilidad) {
+      const candidatohabilidad_filtrado = candidatoHabilidad.filter(
         (candidatohabilidad) => candidatohabilidad.candidatoId === candidatoId
       );
-      sethabilidadesCandidato(candidatohabilidades_Filtradas);
-      
-    }
+
+      // console.log("El array de habilidades es ", habilidad)
+      // console.log("El array de candidatohabilidades que el candidato tiene es ", candidatohabilidad_filtrado)
+
+    habilidad.map((habilidad) => 
+  
+    candidatohabilidad_filtrado.map((candidatohabilidad) => 
+  
+    {if (habilidad.id === candidatohabilidad.habilidadId){
+
+      SetearBotones.push(habilidad.id)
+
+    }}))}
+
+    //console.log("Array de habilidadesId para setear botones es ", SetearBotones)
+
+
+  const [botonesEncendidos, setBotonesEncendidos] = useState(SetearBotones);
     
-  }, [canHab, candidatoId]);
-  //console.log(canHab)
-  //console.log('CandidatoId del context :', candidatoId);
-  //console.log('habilidadesFiltradas: ', habilidadesCandidato,candidatoId);
-
-  let btns = [];
-  for (let i=0;i<habilidadesCandidato?.length;i++){
-    //console.log(habilidadesCandidato[i].candidatoId)
-    btns.push(habilidadesCandidato[i].candidatoId)
-
-  }
-  console.log(btns)
-
   const CambiarEstadoBoton = (habilidadId) => {
-
-    if (habilidadesCandidato.includes(habilidadId)) {
-      setBotonesEncendidos(botonesEncendidos.filter((id) => id === habilidadId));
+    if (botonesEncendidos.includes(habilidadId)) {
+      setBotonesEncendidos(botonesEncendidos.filter((id) => id !== habilidadId));
     } else {
       setBotonesEncendidos([...botonesEncendidos, habilidadId]);
     }
   }
-  
-  const btnHabilidadesRef = useRef([]);
 
   const mutationCreate = useMutation("candidatohabilidad",createCandidatoHabilidad,
   {
@@ -68,20 +58,24 @@ const ListaHabilidades = () => {
       mutationKey: "candidatohabilidad"
   })
 
-  const Metodo = (habilidadId, className)=>{
+  const Metodo = (habilidadId, ClassName)=>{
 
     CambiarEstadoBoton(habilidadId)
-    console.log("CandidatoId= ", candidatoId, "HabilidadId= ", habilidadId, "ClassName= ", className); //para la classname es comprobar si tira el contrario
 
     let CandidatoHabilidadCREATE = {       
       CandidatoId:candidatoId,
       HabilidadId:habilidadId
     };
 
-    className == `btn-skill active`? //Tiene que estar al reves porque el classname del parametro ya fue alternado
-  
-    deleteCandidatoHabilidad(candidatoId, habilidadId)
-    : mutationCreate.mutateAsync(CandidatoHabilidadCREATE)
+    if (ClassName === `btn-skill active`){ //Si el parametro Classname era active, el classname del boton se volvio inactive
+                      
+      deleteCandidatoHabilidad(candidatoId, habilidadId)
+
+    } else {
+
+      mutationCreate.mutateAsync(CandidatoHabilidadCREATE)
+
+    }
 }
 
   if (isLoading)
@@ -91,25 +85,28 @@ const ListaHabilidades = () => {
       return <div>Error</div>
 
   return (
+
     
 <>
             <div>Banco de habilidades</div><br />
             <div>
+
                         {
-                            data.map((habilidad, index) =>
+                            habilidad.map((habilidad, index) =>
                                 <>
                                 <button 
 
                                 key={habilidad.id} 
                                 ref={(element) => (btnHabilidadesRef.current[index] = element)}
 
-                                className={`btn-skill ${btns.includes(habilidad.id) ? 'active' : 'inactive'}`}
-                                 
+                                className={`btn-skill ${botonesEncendidos.includes(habilidad.id) ? 'active' : 'inactive'}`}
+                    
                                 onClick={() => {Metodo(habilidad.id, btnHabilidadesRef.current[index].className)}}
-                                
+                              
                                 >{habilidad.nombre}
-                                {habilidad.id}
-                                </button>
+   
+                                </button>                           
+
                                 </>
                             )}
             </div>
