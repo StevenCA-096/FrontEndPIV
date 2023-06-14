@@ -378,3 +378,64 @@ th {
   font-weight: bold;
   color: red;
 }
+
+.lista-candidatos-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.lista-candidatos-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.lista-candidatos-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.lista-candidatos-table th,
+.lista-candidatos-table td {
+  border: 1px solid #000;
+  padding: 8px;
+}
+
+.lista-candidatos-table th {
+  background-color: gold;
+}
+
+.lista-candidatos-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.lista-candidatos-actions a,
+.lista-candidatos-actions button {
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: #1a1a1a;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.lista-candidatos-actions a:hover,
+.lista-candidatos-actions button:hover {
+  background-color: #646cff;
+}
+
+.lista-candidatos-actions a.delete-button,
+.lista-candidatos-actions button.delete-button {
+  background-color: #f44336;
+}
+
+.lista-candidatos-actions a.delete-button:hover,
+.lista-candidatos-actions button.delete-button:hover {
+  background-color: #ff6659;
+}
