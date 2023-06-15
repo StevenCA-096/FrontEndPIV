@@ -282,7 +282,7 @@ background-position: center center;
   font-family: 'Poppins', sans-serif;
   font-size: 48px;
   font-weight: bold;
-  color: var(--secondary-color);
+  color: #255296;
   margin-bottom: 16px;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -291,7 +291,7 @@ background-position: center center;
 
 .home-text {
   font-size: 18px;
-  color: var(--secondary-color);
+  color: #255296;
 }
 
 /*el responsive */
