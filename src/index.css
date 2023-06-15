@@ -271,7 +271,12 @@ th {
   justify-content: center;
   height: 100vh;
   background-color: var(--primary-color);
+  background-image: url(https://cdn.discordapp.com/attachments/882768379017043981/1118915417986052136/LOGO_IG_AZUL.png);
+  /* Se necesitar hacer la imagen mas opaca */
+  background-repeat:no-repeat;
+background-position: center center;
 }
+
 
 .home-title {
   font-family: 'Poppins', sans-serif;
@@ -301,6 +306,18 @@ th {
 }
 
 /* Css de Lista Empresas */
+.AgregarEmpbtn{
+  border-radius: 2px;
+  border: 1px solid rgb(87, 190, 209);
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 250;
+  font-family: inherit;
+  background-color: #777edc;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  color: rgb(87, 190, 209); 
+}
 
 .table-container {
   margin-top: 20px;
@@ -404,7 +421,7 @@ th {
 }
 
 .lista-candidatos-table th {
-  background-color: gold;
+  background-color: rgb(52, 98, 115);
 }
 
 .lista-candidatos-actions {
