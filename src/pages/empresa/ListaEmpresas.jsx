@@ -16,7 +16,7 @@ const ListaEmpresas = () => {
   return (
     <>
     <AgregarEmpresa/><br />
-    <div className="table-container">
+    <div>
       <h2>Lista de empresas</h2><br />
       <table>
         <thead>

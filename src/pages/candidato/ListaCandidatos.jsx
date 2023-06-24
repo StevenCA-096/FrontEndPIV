@@ -8,7 +8,6 @@ import Editar from './components/Editar'
 
 import CandidatoContext from './components/CandidatoContext';
 
-
 export const ListaCandidatos = () => {
 
     const { setCandidatoId } = useContext(CandidatoContext);
@@ -20,89 +19,17 @@ export const ListaCandidatos = () => {
     const queryClient = new QueryClient();
     const { data, isLoading, isError } = useQuery('candidato', getCandidato);
 
+    if (isLoading)
+        return <div>Loading...</div>
 
-export const ListaCandidatos = () => {
-  const { setCandidatoId } = useContext(CandidatoContext);
+    if (isError)
+        return <div>Error</div>
 
-  const handleNavLinkClick = (candidatoId) => {
-    setCandidatoId(candidatoId);
-  };
-
-  const queryClient = new QueryClient();
-  const { data, isLoading, isError } = useQuery('candidato', getCandidato);
-
-
-  if (isLoading) return <div>Loading...</div>
-
-  if (isError) return <div>Error</div>
-
-  const deleteCandidato = (id) => {
-    const idCandidato = id.id;
-    console.log('Id del candidato: ', idCandidato);
-    deleteCandidato(idCandidato);
-  }
-
-  return (
-    <>
-      <div className="lista-candidatos-container">
-        <AgregarCandidato />
-        <br />
-        <div className="lista-candidatos-title">Lista Candidatos</div>
-        <br />
-        <div>
-          <table className="lista-candidatos-table">
-            <thead>
-              <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Teléfono</th>
-                <th>Email</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.map((candidato) => (
-                <tr key={candidato.id}>
-                  <td>{candidato.id}</td>
-                  <td>{candidato.nombre}</td>
-                  <td>{candidato.telefono}</td>
-                  <td>{candidato.direccion}</td>
-                  <td>
-                    <div className="lista-candidatos-actions">
-                      <NavLink
-                        className="tablebtn"
-                        to={`components/${candidato.id}`}
-                      >
-                        Examinar
-                      </NavLink>
-
-                      <NavLink
-                        className="tablebtn"
-                        to={'/habilidades'}
-                        onClick={() => handleNavLinkClick(candidato.id)}
-                      >
-                        Habilidades
-                      </NavLink>
-
-                      <button
-                        className="tablebtn delete-button"
-                        onClick={() => deleteCandidato(candidato.id)}
-                      >
-                        Eliminar
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </>
-  );
-};
-
-export default ListaCandidatos;
+    const deleteCandidato = (id) => {
+        const idCandidato = id.id;
+        console.log("Id del candidato: ", idCandidato);
+        deleteCandidato(idCandidato);
+    }
 
     return (
         <>
@@ -154,4 +81,3 @@ export default ListaCandidatos;
 }
 
 export default ListaCandidatos;
-
