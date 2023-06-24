@@ -23,7 +23,7 @@ export const deleteCandidato = async (id) => {
 
  export const getCandidatoById = async(id,state) => {
      let data = await axios.get(`https://localhost:7210/api/Candidato/${id}`);
-     console.log(data.data)
+     
      state(data.data)
      return data.data;
  }

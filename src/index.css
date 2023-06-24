@@ -203,6 +203,7 @@ th {
   width: 30%;
 }
 
+
 .navbar {
   display: flex;
   justify-content: center;
@@ -438,4 +439,12 @@ th {
 .lista-candidatos-actions a.delete-button:hover,
 .lista-candidatos-actions button.delete-button:hover {
   background-color: #ff6659;
+=======
+.btn-skill.inactive{
+background-color: black; 
+}
+
+.btn-skill.active{
+  background-color: orange; 
+
 }

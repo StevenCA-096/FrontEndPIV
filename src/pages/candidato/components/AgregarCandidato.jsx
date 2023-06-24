@@ -40,6 +40,7 @@ const AgregarCandidato = () => {
     apellido2.current.value = "";
     fechaNacimiento.current.value = "";
     direccion.current.value = "";
+    telefono.current.value = "";
     descripcion.current.value = "";
   }
 
@@ -61,7 +62,7 @@ const AgregarCandidato = () => {
 
       <input placeholder='telefono'className='input' ref={telefono} type="text" id="telefono"/>
 
-      <input placeholder='descripcion' className='input' ref={descripcion} type="text" id="descripcion"/>
+      <input placeholder='Email' className='input' ref={descripcion} type="text" id="descripcion"/>
       </div>
       <button onClick={save}>Agregar</button>
          

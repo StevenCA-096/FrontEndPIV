@@ -6,6 +6,7 @@ import ListaFormaciones from '../../formacion/ListaFormaciones';
 import OfertasCandidato from './ofertasCandidato';
 
 import { NavLink } from 'react-router-dom';
+import AgregarFormacion from '../../formacion/components/AgregarFormacion';
 
 const Editar = () => {
   const candidatoParams = useParams();
@@ -32,25 +33,13 @@ const Editar = () => {
         <br /><span>Telefono: {Candidato.telefono}</span>
         </div>
         
+        {console.log(Candidato)}
+        <h2>Habilidades</h2>
         {
-          Candidato.candidatoOfertas!= null? (
-            Candidato.candidatoOfertas.map((ofertas)=>
-          <div>
-            <h2>Ofertas</h2>
-            <span>{ofertas.candidatoId}</span>
-          </div>
-          )
-          ):(
-            <span>Este candidato no esta aplicando a ninguna oferta</span>
-          )
-          
-        }
-        {
-          Candidato.candidatoHabilidades!= null?(
-            Candidato.candidatoHabilidades.map((habilidades)=>
-            <div>
-              <h2>Habilidades</h2>
-            <span>{habilidades.habilidadId}</span>
+          Candidato.habilidades !=null?(
+            Candidato.habilidades.map((habilidades)=>
+            <div>           
+            <span>{habilidades.nombre}</span>
             </div>
             )
           ):(
@@ -65,13 +54,16 @@ const Editar = () => {
     ):('Cargando')}
 
             <div className='listformaciones'>
+                <AgregarFormacion/>
                 <ListaFormaciones/><br />  
             </div>
             
             <div className='listocanOfertas'>
+
               {Candidato!=null?
               (<OfertasCandidato candidato={Candidato}/>):("Loading")
               }            
+
             </div>
     </div>
     </>  

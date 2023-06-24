@@ -24,7 +24,7 @@ const AgregarEmpresa = () => {
             telefono:parseInt(telefono.current.value),
         };
         mutation.mutateAsync(newEmpresa);
-        limpiarInput
+        limpiarInput()
     }
     const limpiarInput = ()=>{
         nombre.current.value = "";
