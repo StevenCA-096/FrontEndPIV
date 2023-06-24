@@ -35,7 +35,7 @@ const AgregarEmpresa = () => {
   return (
     <>  
         <h2>Agregar empresa</h2>
-        <div className='container'>
+        <div className='Agregar-container'>
             
             <label>Nombre: </label>
             <input className='input' ref={nombre} type="text" name="empresaNombre" />
@@ -46,7 +46,7 @@ const AgregarEmpresa = () => {
             <label>Telefono: </label>
             <input className='input' ref={telefono} type="text" name="empresaTelefono" />
             
-            <button onClick={save}>Agregar</button>
+            <button className='AgregarEmpbtn' onClick={save}>Agregar</button>
         </div>
    
     </>
