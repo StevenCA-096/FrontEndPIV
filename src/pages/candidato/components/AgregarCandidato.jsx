@@ -64,7 +64,7 @@ const AgregarCandidato = () => {
 
       <input placeholder='Email' className='input' ref={descripcion} type="text" id="descripcion"/>
       </div>
-      <button onClick={save}>Agregar</button>
+      <button className='AgregarEmpbtn' onClick={save}>Agregar</button>
          
     </>
   )

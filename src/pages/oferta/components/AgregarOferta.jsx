@@ -37,7 +37,7 @@ const AgregarOferta = () => {
             <input className='input' ref={idOferta} type="text" name="empresaNombre" />
             <label>Descripcion oferta: </label>
             <input className='input' ref={descripcion} type="text" name="empresaNombre" />
-            <button onClick={save}>Agregar</button>
+            <button className='AgregarEmpbtn' onClick={save}>Agregar</button>
     </div>
     </>
   )
