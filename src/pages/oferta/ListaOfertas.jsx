@@ -14,17 +14,16 @@ const ListaOfertas = () => {
   return (
     <>   
     <AgregarOferta/><br />
-    <h1>ListaOfertas</h1>
+    <h1>Lista Ofertas</h1>
     <div >
     {
             data.map((oferta) =>
             <div key={oferta.id} className='offer-container'>
                 <span>{oferta.descripcion}</span> <br />
-                
-                {
+                <span>Habilidades</span>
+                {                 
                 oferta.habilidades.map((habs) =>
-                <div>
-                  <span>Habilidades buscadas: </span>
+                <div>           
                 <ul>
                   <li>{habs.nombre}</li>
                 </ul>

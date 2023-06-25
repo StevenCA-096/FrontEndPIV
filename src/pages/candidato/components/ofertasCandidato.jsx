@@ -2,6 +2,7 @@ import React, { useState,useEffect } from 'react'
 import { getCandidatoById } from '../../../Services/CandidatoServices/CandidatoService'
 import { useQuery } from 'react-query'
 import { getCandidatoOfertaMatch } from '../../../Services/CandidatoServices/CandidatoOfertaService'
+import Aplicar from '../../oferta/components/Aplicar'
 const ofertasCandidato = (candidato) => {
     let data = candidato.candidato;
     const [match, setmatch] = useState()
@@ -31,7 +32,10 @@ const ofertasCandidato = (candidato) => {
       <ul>
         {match!= null? (
           match.map((ofertaFiltro)=> 
+          <>
         <li >{ofertaFiltro.descripcion}</li>
+        <Aplicar param={ofertaFiltro.id}></Aplicar>
+        </>
         )):("No encontramos ofertas acorde a sus habilidades")}
       </ul>
       </div>

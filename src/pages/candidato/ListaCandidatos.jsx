@@ -46,7 +46,7 @@ export const ListaCandidatos = () => {
                             <th>nombre</th>
                             <th>Telefono</th>
                             <th>Email</th>
-                            <th>Acciones</th>
+                            <th>Acciones</th    >
                                               
                         {
                             data.map((candidato) =>

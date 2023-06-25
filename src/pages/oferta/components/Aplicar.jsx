@@ -49,8 +49,8 @@ const Aplicar = ({ param }) => {
 
       console.log("ID"+idc)
       let candidatoOferta = {
-        candidatoId: idc,
-        ofertaId: parseInt(param)
+        candidatoId: parseInt(param),
+        ofertaId: idc
     };
     mutation.mutateAsync(candidatoOferta)
     console.log(candidatoOferta)
@@ -61,14 +61,14 @@ const Aplicar = ({ param }) => {
 
   return (
     <div>
-      <button onClick={openModal}>Abrir cuadro de diálogo</button>
+      <button onClick={openModal}>Aplicar</button>
       <Modal
         isOpen={isOpen}
         onRequestClose={closeModal}
         contentLabel="Aplicar"
         
       >
-        <h2>Cuadro de diálogo</h2>
+        <h2>Aplicar</h2>
         <p>Parámetro recibido: {param}</p>
         <form onSubmit={handleSubmit} >
           <label>

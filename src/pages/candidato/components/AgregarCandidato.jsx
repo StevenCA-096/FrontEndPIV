@@ -58,11 +58,11 @@ const AgregarCandidato = () => {
 
       <input placeholder='Fecha de nacimiento' className='input' ref={fechaNacimiento} type="text" id="fechan"/>
          
-      <input placeholder='direccion'className='input' ref={direccion} type="text" id="direccion"/>     
+      <input placeholder='email'className='input' ref={direccion} type="text" id="direccion"/>     
 
       <input placeholder='telefono'className='input' ref={telefono} type="text" id="telefono"/>
 
-      <input placeholder='Email' className='input' ref={descripcion} type="text" id="descripcion"/>
+      <input placeholder='descripcion' className='input' ref={descripcion} type="text" id="descripcion"/>
       </div>
       <button onClick={save}>Agregar</button>
          
